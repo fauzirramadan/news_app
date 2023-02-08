@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/constant.dart';
 
@@ -23,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[100],
+      backgroundColor: Colors.deepPurple[50],
       appBar: AppBar(
         title: const Text("BaguNews"),
       ),
@@ -58,6 +57,25 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple[100],
+                        borderRadius: BorderRadius.circular(12)),
+                    margin:
+                        const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                    child: ListTile(
+                      title: Text("Title"),
+                      leading: CircleAvatar(),
+                      subtitle: Text("author"),
+                      trailing: Text("tanggal"),
+                    ),
+                  );
+                }),
+          )
         ],
       ),
     );
