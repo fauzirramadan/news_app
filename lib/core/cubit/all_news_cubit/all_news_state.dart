@@ -14,4 +14,7 @@ class AllNewsError extends AllNewsState {
   AllNewsError(this.message);
 }
 
-class AllNewsSuccess extends AllNewsState {}
+class AllNewsSuccess extends AllNewsState {
+  final List<Article> listNews;
+  AllNewsSuccess(this.listNews);
+}

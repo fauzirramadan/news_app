@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../view/ui/home.dart';
+import '../view/ui/home_page.dart';
 
 final GlobalKey<ScaffoldMessengerState> notifKey = GlobalKey();
 final GlobalKey<NavigatorState> navKey = GlobalKey();
