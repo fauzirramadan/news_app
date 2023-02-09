@@ -35,8 +35,6 @@ class GeneralRepo {
   }
 
   Future<Either<Failure, ResGetNews>> fetchNewsPerCategory({
-    String? fromDate,
-    String? toDate,
     String? category,
   }) async {
     try {

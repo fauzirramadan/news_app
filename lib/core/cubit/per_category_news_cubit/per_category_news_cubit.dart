@@ -23,8 +23,8 @@ class PerCategoryNewsCubit extends Cubit<PerCategoryNewsState> {
   Future<void> getNewsPerCat(String category,
       {String? fromDate, String? toDate}) async {
     emit(PerCategoryNewsLoading());
-    Either<Failure, ResGetNews> res = await _repo.fetchNewsPerCategory(
-        fromDate: fromDate, toDate: toDate, category: category);
+    Either<Failure, ResGetNews> res =
+        await _repo.fetchNewsPerCategory(category: category);
     res.when(error: (e) {
       log(e.toString());
       NotifUtils.showSnackbar(e.message, backgroundColor: Colors.red);
