@@ -17,6 +17,7 @@ class PerCategoryNewsCubit extends Cubit<PerCategoryNewsState> {
   PerCategoryNewsCubit() : super(PerCategoryNewsInitial());
 
   final GeneralRepo _repo = GeneralRepo();
+  TextEditingController searchC = TextEditingController();
   List<Article> listNews = [];
   int page = 1;
 

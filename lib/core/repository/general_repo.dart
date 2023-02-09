@@ -16,14 +16,15 @@ class GeneralRepo {
     String? toDate,
   }) async {
     try {
-      Response res = await dio
-          .get(Api.allNewsUrl, options: Api.authorization, queryParameters: {
-        "q": query,
-        "language": "id",
-        "fromDate": fromDate,
-        "toDate": toDate,
-        "pageSize": 50
-      });
+      Response res = await dio.get(Api.allNewsUrl,
+          options: Api.authorization,
+          queryParameters: {
+            "q": query,
+            "language": "id",
+            "from": fromDate,
+            "to": toDate,
+            "pageSize": 50
+          });
       return Either.success(ResGetNews.fromJson(res.data));
     } catch (e, st) {
       if (kDebugMode) {

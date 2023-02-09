@@ -35,6 +35,11 @@ class NewsTile extends StatelessWidget {
               return child;
             }
           },
+          errorBuilder: (context, error, stackTrace) => const Icon(
+            Icons.error,
+            color: Colors.red,
+            size: 50,
+          ),
         ),
         title: Text(
           data?.title ?? "",

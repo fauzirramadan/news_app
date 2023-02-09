@@ -39,6 +39,9 @@ class _ListAllNewsState extends State<ListAllNews> {
                     "Discover",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   ),
+                  const Spacer(),
+                  Text(DateFormatUtils.toSimpleTime(
+                      selectedDate ?? DateTime.now())),
                   IconButton(
                     onPressed: () => selectDate(context, cubit),
                     icon: Icon(
@@ -74,23 +77,27 @@ class _ListAllNewsState extends State<ListAllNews> {
                       fromDate: DateFormatUtils.toSimpleTime(DateTime.now()),
                       toDate: DateFormatUtils.toSimpleTime(DateTime.now()));
                 }
-                if (currentState is AllNewsLoading) {
-                  return const Padding(
-                    padding: EdgeInsets.only(top: 30.0),
-                    child: LoadingCircular(),
-                  );
+
+                if (currentState is AllNewsError) {
+                  return const Text("SOMETHING WENT WRONG");
                 }
 
-                return cubit!.listNews.isEmpty
-                    ? const Text("NO DATA")
-                    : Expanded(
-                        child: ListView.builder(
-                            itemCount: cubit?.listNews.length,
-                            itemBuilder: (context, index) {
-                              final data = cubit?.listNews[index];
-                              return NewsTile(data: data);
-                            }),
-                      );
+                if (currentState is AllNewsSuccess) {
+                  return cubit!.listNews.isEmpty
+                      ? const Text("NO DATA")
+                      : Expanded(
+                          child: ListView.builder(
+                              itemCount: cubit?.listNews.length,
+                              itemBuilder: (context, index) {
+                                final data = cubit?.listNews[index];
+                                return NewsTile(data: data);
+                              }),
+                        );
+                }
+                return const Padding(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: LoadingCircular(),
+                );
               },
             ),
           ],
@@ -109,7 +116,6 @@ class _ListAllNewsState extends State<ListAllNews> {
     ).then((date) {
       if (date != null) {
         selectedDate = date;
-        cubit?.searchC.clear();
         log(DateFormatUtils.toSimpleTime(selectedDate ?? DateTime.now()));
         setState(() {});
         cubit?.getAllNews(

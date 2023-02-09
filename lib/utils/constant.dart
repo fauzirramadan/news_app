@@ -5,4 +5,5 @@ class Constants {
   static const imgBusiness = "$baseImg/business.jpeg";
   static const imgHealth = "$baseImg/health.jpeg";
   static const imgTech = "$baseImg/tech.jpeg";
+  static const imgScience = "$baseImg/science.jpeg";
 }

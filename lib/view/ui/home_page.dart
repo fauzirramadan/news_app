@@ -15,9 +15,10 @@ class _HomePageState extends State<HomePage> {
   final List<Map<String, dynamic>> listCat = [
     {"title": "Entertainment", 'pic': Constants.imgEntertain},
     {"title": "Business", 'pic': Constants.imgBusiness},
-    {"title": "Sport", 'pic': Constants.imgSport},
+    {"title": "Sports", 'pic': Constants.imgSport},
     {"title": "Health", 'pic': Constants.imgHealth},
-    {"title": "Technology", 'pic': Constants.imgTech}
+    {"title": "Technology", 'pic': Constants.imgTech},
+    {"title": "Science", 'pic': Constants.imgScience}
   ];
 
   @override
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.deepPurple[50],
       appBar: AppBar(
-        title: const Text("BaguNews"),
+        title: const Text("BaguNewsID"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           const Padding(
             padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
             child: Text(
-              "Category",
+              "Top Headline Category",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
             ),
           ),

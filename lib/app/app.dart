@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: notifKey,
       navigatorKey: navKey,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter News App',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
