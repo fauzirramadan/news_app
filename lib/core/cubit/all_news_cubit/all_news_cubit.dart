@@ -19,7 +19,6 @@ class AllNewsCubit extends Cubit<AllNewsState> {
   final GeneralRepo _repo = GeneralRepo();
   final TextEditingController searchC = TextEditingController();
   List<Article> listNews = [];
-  int page = 1;
 
   Future<void> getAllNews({String? fromDate, String? toDate}) async {
     emit(AllNewsLoading());

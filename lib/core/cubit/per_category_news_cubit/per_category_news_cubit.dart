@@ -19,7 +19,6 @@ class PerCategoryNewsCubit extends Cubit<PerCategoryNewsState> {
   final GeneralRepo _repo = GeneralRepo();
   TextEditingController searchC = TextEditingController();
   List<Article> listNews = [];
-  int page = 1;
 
   Future<void> getNewsPerCat(String category,
       {String? fromDate, String? toDate}) async {
