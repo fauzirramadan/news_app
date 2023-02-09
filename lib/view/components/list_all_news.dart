@@ -58,12 +58,16 @@ class _ListAllNewsState extends State<ListAllNews> {
               child: CustomField(
                 controller: cubit?.searchC,
                 onEditingComplete: () {
-                  cubit?.getAllNews(
-                      fromDate: DateFormatUtils.toSimpleTime(
-                          selectedDate ?? DateTime.now()),
-                      toDate: DateFormatUtils.toSimpleTime(
-                          selectedDate ?? DateTime.now()));
-                  setState(() {});
+                  if (cubit?.searchC.text.length != 0) {
+                    cubit?.getAllNews(
+                        fromDate: DateFormatUtils.toSimpleTime(
+                            selectedDate ?? DateTime.now()),
+                        toDate: DateFormatUtils.toSimpleTime(
+                            selectedDate ?? DateTime.now()));
+                    setState(() {});
+                  } else {
+                    null;
+                  }
                 },
                 onChanged: (val) {
                   setState(() {});
