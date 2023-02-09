@@ -18,7 +18,6 @@ class PerCategoryPage extends StatefulWidget {
 class _PerCategoryPageState extends State<PerCategoryPage> {
   PerCategoryNewsCubit? cubit;
   PerCategoryNewsState? currentState;
-  DateTime? selectedDate;
   List<Article> foundNews = [];
 
   @override

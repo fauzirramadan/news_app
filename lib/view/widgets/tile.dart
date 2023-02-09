@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/nav_utils.dart';
 import 'package:news_app/view/ui/detail.dart';
-import 'package:news_app/view/widgets/loading_circular.dart';
 
 import '../../core/models/article.dart';
 import '../../utils/date_utils.dart';
