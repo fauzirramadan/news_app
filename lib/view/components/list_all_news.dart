@@ -57,7 +57,13 @@ class _ListAllNewsState extends State<ListAllNews> {
               padding: const EdgeInsets.only(left: 8.0, right: 10),
               child: CustomField(
                 controller: cubit?.searchC,
-                onEditingComplete: () => cubit?.getAllNews(),
+                onEditingComplete: () {
+                  if (cubit?.searchC.text.length != 0) {
+                    cubit?.getAllNews();
+                  } else {
+                    null;
+                  }
+                },
                 onChanged: (val) {
                   if (val.isEmpty) {
                     cubit?.getAllNews();

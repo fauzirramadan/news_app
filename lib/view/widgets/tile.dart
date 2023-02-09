@@ -35,10 +35,20 @@ class NewsTile extends StatelessWidget {
               return child;
             }
           },
-          errorBuilder: (context, error, stackTrace) => const Icon(
-            Icons.error,
-            color: Colors.red,
-            size: 50,
+          errorBuilder: (context, error, stackTrace) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.error,
+                color: Colors.red,
+                size: 30,
+              ),
+              Text(
+                "ERROR",
+                style: TextStyle(color: Colors.red, fontSize: 10),
+              )
+            ],
           ),
         ),
         title: Text(

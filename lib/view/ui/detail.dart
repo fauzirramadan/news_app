@@ -29,6 +29,22 @@ class DetailNews extends StatelessWidget {
                   return child;
                 }
               },
+              errorBuilder: (context, error, stackTrace) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.error,
+                      color: Colors.red,
+                      size: 50,
+                    ),
+                    Text(
+                      "ERROR",
+                      style: TextStyle(color: Colors.red),
+                    )
+                  ],
+                ),
+              ),
             )),
             const SizedBox(
               height: 10,
