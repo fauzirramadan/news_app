@@ -25,7 +25,7 @@ class AllNewsCubit extends Cubit<AllNewsState> {
     Either<Failure, ResGetNews> res = await _repo.fetchAllNews(
         fromDate: fromDate,
         toDate: toDate,
-        query: searchC.text.isEmpty ? "Indonesia" : searchC.text);
+        query: searchC.text.isEmpty ? "indonesia" : searchC.text);
     res.when(error: (e) {
       log(e.toString());
       NotifUtils.showSnackbar(e.message, backgroundColor: Colors.red);

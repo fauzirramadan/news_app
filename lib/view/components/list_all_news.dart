@@ -57,10 +57,22 @@ class _ListAllNewsState extends State<ListAllNews> {
               padding: const EdgeInsets.only(left: 8.0, right: 10),
               child: CustomField(
                 controller: cubit?.searchC,
-                onEditingComplete: () => cubit?.getAllNews(),
+                onEditingComplete: () {
+                  cubit?.getAllNews(
+                      fromDate: DateFormatUtils.toSimpleTime(
+                          selectedDate ?? DateTime.now()),
+                      toDate: DateFormatUtils.toSimpleTime(
+                          selectedDate ?? DateTime.now()));
+                  setState(() {});
+                },
                 onChanged: (val) {
+                  setState(() {});
                   if (val.isEmpty) {
-                    cubit?.getAllNews();
+                    cubit?.getAllNews(
+                        fromDate: DateFormatUtils.toSimpleTime(
+                            selectedDate ?? DateTime.now()),
+                        toDate: DateFormatUtils.toSimpleTime(
+                            selectedDate ?? DateTime.now()));
                   }
                 },
               ),
@@ -73,6 +85,7 @@ class _ListAllNewsState extends State<ListAllNews> {
                 cubit = context.read<AllNewsCubit>();
                 currentState = state;
                 if (currentState is AllNewsInitial) {
+                  cubit?.searchC.clear();
                   cubit?.getAllNews(
                       fromDate: DateFormatUtils.toSimpleTime(DateTime.now()),
                       toDate: DateFormatUtils.toSimpleTime(DateTime.now()));
